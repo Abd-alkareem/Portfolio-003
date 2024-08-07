@@ -301,8 +301,10 @@ a {
         position: relative !important;
         left: 0 !important;
         transform: translate(0, 10px) !important;
+        opacity: 1;
     }
 }
+
 
 .sidebar .minu-btn {
     width: 40px;

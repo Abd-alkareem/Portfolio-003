@@ -87,6 +87,24 @@ let data = [
         cardImage:"./image/sites/sentra.png",
         projectRepo:"https://github.com/Abd-alkareem/sentra.git",
     },
+    {
+        projectName:"job entry",
+        projectURL:"job-entry003.surge.sh",
+        cardImage:"./image/sites/job_entry.png",
+        projectRepo:"https://github.com/Abd-alkareem/job-entry",
+    },
+    {
+        projectName:"barber shop",
+        projectURL:"barber-shop003.surge.sh",
+        cardImage:"./image/sites/barber-shop.png",
+        projectRepo:"https://github.com/Abd-alkareem/barber-shop",
+    },
+    {
+        projectName:"finexo",
+        projectURL:"finexo-003.surge.sh",
+        cardImage:"./image/sites/finexo.png",
+        projectRepo:"https://github.com/Abd-alkareem/finexo-by-Abd",
+    },
 ];
 
 

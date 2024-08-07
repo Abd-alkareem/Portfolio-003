@@ -163,3 +163,15 @@ document.querySelector(".contact .send-button").addEventListener("click",()=>{
         e.value = "";
     })
 })
+
+//logic for contact section
+let filds = document.querySelectorAll(".in-fild");
+let sendBtn = document.querySelector(".sendBtn");
+
+sendBtn.addEventListener("click",()=>{
+    setTimeout(()=>{
+        filds.forEach((fild)=>{
+            fild.value = "";
+        })
+    },100)
+})

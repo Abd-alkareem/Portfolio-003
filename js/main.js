@@ -107,7 +107,7 @@ let data = [
     },
     {
         projectName:"to do list",
-        projectURL:"https://abd-alkareem.github.io/to-do-list/",
+        projectURL:"abd-alkareem.github.io/to-do-list/",
         cardImage:"./image/sites/to-do-003.png",
         projectRepo:"https://github.com/Abd-alkareem/to-do-list",
     },

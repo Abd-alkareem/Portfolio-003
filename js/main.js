@@ -105,6 +105,12 @@ let data = [
         cardImage:"./image/sites/finexo.png",
         projectRepo:"https://github.com/Abd-alkareem/finexo-by-Abd",
     },
+    {
+        projectName:"finexo",
+        projectURL:"https://abd-alkareem.github.io/to-do-list/",
+        cardImage:"./image/sites/to-do-003",
+        projectRepo:"https://github.com/Abd-alkareem/to-do-list",
+    },
 ];
 
 

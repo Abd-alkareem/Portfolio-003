@@ -120,14 +120,47 @@ let data = [
 ];
 
 
+
 //add information to cards
-let projects = document.querySelectorAll(".portfolio .container .holder .card");
-projects.forEach((project,ind)=>{
-    project.querySelector(".card-project-name").innerHTML = data[ind].projectName;
-    project.querySelector(".project-img").src = data[ind].cardImage;
-    project.querySelector(".project-link").href = `https://${data[ind].projectURL}`;
-    project.querySelector(".project-repo").href = `${data[ind].projectRepo}`;
-})
+function createElements(){
+    for(let i = 0; i<data.length;i++){
+        //creating elements
+        let CardDiv = document.createElement("div");
+        let img = document.createElement("img");
+        let infoDiv = document.createElement("div");
+        let nameSpan = document.createElement("span");
+        let eye_i = document.createElement("i");
+        let github_i = document.createElement("i");
+        //addign classes
+        CardDiv.className = "card col-12 col-md-5 col-lg-3";
+        img.className = "project-img";
+        infoDiv.className = "info";
+        nameSpan.className = "card-project-name";
+        eye_i.className = "fas fa-eye";
+        github_i.className = "fab fa-github";
+        //adding data
+        github_i.innerHTML = `<a href="${data[i].projectRepo}" class="project-repo" target="_blank"></a><span>see project's code</span>`;
+        eye_i.innerHTML = `<a href="${data[i].projectURL}" class="project-link" target="_blank"></a><span>visit the site</span>`;
+        nameSpan.innerHTML = data[i].projectName;
+        img.src = data[i].cardImage;
+        //appending elements to each other
+        infoDiv.appendChild(nameSpan);
+        infoDiv.appendChild(eye_i);
+        infoDiv.appendChild(github_i);
+        CardDiv.appendChild(img);
+        CardDiv.appendChild(infoDiv);
+        //
+        document.querySelector(".portfolio .container .holder").appendChild(CardDiv);
+
+}};
+createElements();
+// let projects = document.querySelectorAll(".portfolio .container .holder .card");
+// projects.forEach((project,ind)=>{
+//     project.querySelector(".card-project-name").innerHTML = data[ind].projectName;
+//     project.querySelector(".project-img").src = data[ind].cardImage;
+//     project.querySelector(".project-link").href = `https://${data[ind].projectURL}`;
+//     project.querySelector(".project-repo").href = `${data[ind].projectRepo}`;
+// })
 
 //insert the number of projects
 document.querySelector(".trainning-projects ").innerHTML = data.length;

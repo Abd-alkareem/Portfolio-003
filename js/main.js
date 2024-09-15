@@ -140,7 +140,7 @@ function createElements(){
         github_i.className = "fab fa-github";
         //adding data
         github_i.innerHTML = `<a href="${data[i].projectRepo}" class="project-repo" target="_blank"></a><span>see project's code</span>`;
-        eye_i.innerHTML = `<a href="${data[i].projectURL}" class="project-link" target="_blank"></a><span>visit the site</span>`;
+        eye_i.innerHTML = `<a href="https://${data[ind].projectURL}" class="project-link" target="_blank"></a><span>visit the site</span>`;
         nameSpan.innerHTML = data[i].projectName;
         img.src = data[i].cardImage;
         //appending elements to each other

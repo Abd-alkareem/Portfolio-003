@@ -111,6 +111,12 @@ let data = [
         cardImage:"./image/sites/to-do-003.png",
         projectRepo:"https://github.com/Abd-alkareem/to-do-list",
     },
+    {
+        projectName:"guess the word",
+        projectURL:"abd-alkareem.github.io/guess-the-word",
+        cardImage:"./image/sites/guess-the-word.png",
+        projectRepo:"https://github.com/Abd-alkareem/guess-the-word",
+    },
 ];
 
 

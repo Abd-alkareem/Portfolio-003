@@ -117,6 +117,12 @@ let data = [
         cardImage:"./image/sites/guess-the-word.png",
         projectRepo:"https://github.com/Abd-alkareem/guess-the-word",
     },
+    {
+        projectName:"memory game",
+        projectURL:"abd-alkareem.github.io/memory-game",
+        cardImage:"./image/sites/memory-game.png",
+        projectRepo:"https://github.com/Abd-alkareem/memory-game",
+    },
 ];
 
 
@@ -154,13 +160,6 @@ function createElements(){
 
 }};
 createElements();
-// let projects = document.querySelectorAll(".portfolio .container .holder .card");
-// projects.forEach((project,ind)=>{
-//     project.querySelector(".card-project-name").innerHTML = data[ind].projectName;
-//     project.querySelector(".project-img").src = data[ind].cardImage;
-//     project.querySelector(".project-link").href = `https://${data[ind].projectURL}`;
-//     project.querySelector(".project-repo").href = `${data[ind].projectRepo}`;
-// })
 
 //insert the number of projects
 document.querySelector(".trainning-projects ").innerHTML = data.length;

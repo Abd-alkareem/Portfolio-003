@@ -216,6 +216,7 @@ a {
     .sidebar .links {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
     }
 
 }
@@ -235,8 +236,8 @@ a {
 
 @media(max-width:577px) {
     .links li {
-        width: 50% !important;
-        height: 150px !important;
+        width: 100% !important;
+        height: 70px !important;
     }
 }
 
@@ -251,10 +252,16 @@ a {
 @media(max-width:577px) {
     .sidebar .links a {
         display: flex !important;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 20px;
     }
+
+    .sidebar .links a i {
+        width: 40px;
+    }
+
 }
 
 .sidebar .links li i {
@@ -300,8 +307,9 @@ a {
     .sidebar .links li span {
         position: relative !important;
         left: 0 !important;
-        transform: translate(0, 10px) !important;
+        transform: translate(0, 0px) !important;
         opacity: 1;
+        font-size: 16px;
     }
 }
 

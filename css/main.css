@@ -1,6 +1,9 @@
 :root {
-    --main-color: #ef3724;
-    --alt-color: #ff5c31;
+    --main-color: #40534C;
+    --secound-color: #1A3636;
+    --alt-color: #D6BD98;
+    --card-bg: linear-gradient(145deg, rgba(64, 83, 76, 1) 0%, rgba(26, 54, 54, 1) 89%);
+    /* for animated color */
     --reflection-color: hsla(48, 30%, 95%, .3);
 }
 
@@ -63,7 +66,7 @@ a {
 .sitting-bar {
     position: fixed;
     z-index: 111;
-    right: -278px;
+    right: -262px;
     top: 50%;
     transform: translateY(-30%);
     padding: 14px 14px 24px;
@@ -85,6 +88,8 @@ a {
     height: 100%;
     background-color: white;
     border-radius: 10px 0 0 10px;
+    border: 1px solid var(--main-color);
+    border-right: none;
 }
 
 .sitting-bar .buttons .github-link::before {
@@ -149,7 +154,7 @@ a {
 
 .sitting-bar .colors ul {
     display: flex;
-    gap: 10px;
+    gap: 22px;
 }
 
 .sitting-bar .colors ul li {
@@ -159,7 +164,7 @@ a {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: var(--color);
+    background: var(--color);
     cursor: pointer;
 }
 
@@ -182,7 +187,8 @@ a {
     top: 0;
     height: 100vh;
     width: 80px;
-    background-color: #2C2D34;
+    /* background-color: #2C2D34; */
+    background-color: var(--secound-color);
     padding: 30px 0;
     z-index: 10000;
 }
@@ -192,7 +198,7 @@ a {
 }
 
 .sidebar .bar span {
-    color: var(--main-color);
+    color: var(--alt-color);
     font-weight: bold;
     text-transform: uppercase;
     font-size: 20px;
@@ -247,6 +253,7 @@ a {
     height: 100%;
     overflow: hidden;
     position: relative;
+    color: var(--alt-color);
 }
 
 @media(max-width:577px) {
@@ -265,7 +272,6 @@ a {
 }
 
 .sidebar .links li i {
-    color: gainsboro;
     display: block;
     margin-top: auto;
     font-size: 34px;
@@ -286,7 +292,7 @@ a {
 
 
 .sidebar .links li span {
-    color: gainsboro;
+    /* color: gainsboro; */
     text-transform: capitalize;
     font-size: 14px;
     position: absolute;
@@ -335,7 +341,7 @@ a {
 }
 
 .sidebar .minu-btn span.active {
-    background-color: var(--main-color);
+    background-color: var(--alt-color);
 
 }
 
@@ -455,7 +461,7 @@ a {
     padding: 10px 18px;
     border-radius: 24px;
     border: 2px solid black;
-    color: black;
+    color: var(--alt-color);
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -791,9 +797,7 @@ a {
 .services {
     margin: 50px 0 100px;
     min-height: 50vh;
-    background: url(../image/i-3.jpg);
-    background-size: cover;
-    background-position: center;
+    background-color: var(--secound-color);
     position: relative;
 }
 
@@ -802,8 +806,8 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #505050;
-    opacity: 0.6;
+    background-color: #000;
+    opacity: 0.5;
     position: absolute;
     top: 0;
     left: 0;
@@ -858,115 +862,172 @@ a {
 .portfolio .container .holder {
     margin: 60px 0 0 0;
     gap: 30px;
-    justify-content: center;
-}
-
-.portfolio .container .holder .card {
     position: relative;
-    min-height: 220px;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: var(--main-color);
-    max-width: 350px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.portfolio .container .holder .card img {
-    width: 100%;
+.portfolio .container .holder .project-card {
+    position: relative;
+    height: 300px;
+    border: 1px solid black;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+
+.portfolio .container .holder .project-card.flipped {
+    transform: rotateY(-180deg);
+}
+
+.portfolio .container .holder .project-card .face {
     position: absolute;
+    width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
-    opacity: 1;
-    transition: 0.3s;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
 }
 
-.portfolio .container .holder .card:hover img {
-    opacity: 0.8;
-    transform: scale(1.05);
-
-}
-
-.portfolio .container .holder .card .info {
+.portfolio .container .holder .project-card .front-face button {
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    width: 121px;
+    height: 50px;
+    z-index: 11;
     position: absolute;
-    bottom: -300px;
-    left: 0;
-    background-color: white;
+    right: -48px;
+    bottom: -17px;
+    transform: rotateZ(-50deg);
+    cursor: pointer;
+}
+
+.portfolio .container .holder .project-card .front-face button i {
+    content: "\f064";
+    color: var(--alt-color);
+    font-weight: bold;
+    font-size: 20px;
+    transform: rotateZ(50deg);
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 44%;
+}
+
+.portfolio .container .holder .project-card .front-face img {
     width: 100%;
-    padding: 30px 10px;
+    position: absolute;
+}
+
+.portfolio .container .holder .project-card .back-face {
+    transform: rotateY(-180deg);
+    background: var(--card-bg);
+}
+
+.portfolio .container .holder .project-card .back-face .back-flib {
+    background-color: var(--alt-color);
+    border: none;
+    outline: none;
+    width: 121px;
+    height: 50px;
+    z-index: 11;
+    position: absolute;
+    right: -48px;
+    bottom: -17px;
+    transform: rotateZ(-50deg);
+    cursor: pointer;
+}
+
+.portfolio .container .holder .project-card .back-face .back-flib i {
+    content: "\f064";
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 20px;
+    transform: rotateZ(50deg);
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 44%;
+}
+
+.portfolio .container .holder .project-card .back-face .project-name {
+    display: block;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    text-transform: capitalize;
+    font-size: 22px;
+    color: whitesmoke;
+}
+
+.portfolio .container .holder .project-card .back-face .card-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.portfolio .container .holder .project-card .back-face .card-buttons button {
+    width: 100%;
+    max-width: 150px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: var(--alt-color);
+    border: 1px solid transparent;
+    border-radius: 6px;
     transition: 0.3s;
 }
 
-.portfolio .container .holder .card:hover .info {
-    bottom: 0px;
+.portfolio .container .holder .project-card .back-face .card-buttons button:hover {
+    background-color: var(--secound-color);
+    border-color: var(--alt-color);
 }
 
-.portfolio .container .holder .card .info .card-project-name {
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--main-color);
+.portfolio .container .holder .project-card .back-face .card-buttons button span {
+    width: 75%;
 }
 
-.portfolio .container .holder .card .info i {
+.portfolio .container .holder .project-card .back-face .card-buttons button a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--secound-color);
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.portfolio .container .holder .project-card .back-face .card-buttons button:hover a {
+    color: var(--alt-color);
+}
+
+.portfolio .container .holder .project-card .back-face .card-buttons button a i {
     width: 30px;
     height: 30px;
-    background-color: var(--main-color);
-    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: -15px;
-    transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid transparent;
 }
 
-.portfolio .container .holder .card .info i a {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.portfolio .container .holder .card .info i>span {
-    position: absolute;
-    font-weight: 100;
-    font-size: 12px;
-    min-width: 100px;
-    border-radius: 4px;
-    text-transform: capitalize;
-    padding: 4px;
-    bottom: -36px;
-    right: -4px;
-    font-family: cursive;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 0 5px #acacac;
-    opacity: 0;
-    background-color: white;
-    z-index: 111;
-
-}
-
-.portfolio .container .holder .card .info i:hover>span {
-    opacity: 1;
-}
-
-.portfolio .container .holder .card .info i:hover {
-    background-color: white;
-    color: #333;
-    border-color: black;
-}
-
-.portfolio .container .holder .card .info i:first-of-type {
-
-    right: 10px;
-}
-
-.portfolio .container .holder .card .info i:last-of-type {
-
-    right: 50px;
+.portfolio .container .holder .project-card .back-face .project-date {
+    display: block;
+    position: relative;
+    margin-top: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: whitesmoke;
 }
 
 /* end portfolio */
@@ -975,9 +1036,8 @@ a {
 .contact {
     min-height: 90vh;
     position: relative;
-    background: url(../image/i-2.jpg);
-    background-size: cover;
-    background-position: center;
+
+    background-color: var(--secound-color);
     padding-top: 10vh;
     padding-bottom: 30px;
 }
@@ -987,8 +1047,9 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #505050;
+    background-color: #000;
     opacity: 0.6;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -1046,7 +1107,6 @@ a {
     border-color: var(--main-color);
 }
 
-.contact .container .holder .half:last-child {}
 
 .contact .container .holder .half:last-child>div {
     gap: 30px;
@@ -1064,7 +1124,6 @@ a {
     background-color: white;
 }
 
-.contact .container .holder .half:last-child>div>div {}
 
 .contact .container .holder .half:last-child>div>div span:first-child {
     display: block;
@@ -1072,6 +1131,7 @@ a {
     font-size: 17px;
     font-weight: 600;
     text-transform: capitalize;
+    filter: drop-shadow(0px 0px 0px white)
 }
 
 .contact .container .holder .half:last-child>div>div span:last-child {

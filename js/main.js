@@ -125,40 +125,47 @@ let data = [
     },
 ];
 
-
-
-//add information to cards
+// function to create the projects cards
 function createElements(){
-    for(let i = 0; i<data.length;i++){
-        //creating elements
-        let CardDiv = document.createElement("div");
-        let img = document.createElement("img");
-        let infoDiv = document.createElement("div");
-        let nameSpan = document.createElement("span");
-        let eye_i = document.createElement("i");
-        let github_i = document.createElement("i");
-        //addign classes
-        CardDiv.className = "card col-12 col-md-5 col-lg-3";
-        img.className = "project-img";
-        infoDiv.className = "info";
-        nameSpan.className = "card-project-name";
-        eye_i.className = "fas fa-eye";
-        github_i.className = "fab fa-github";
-        //adding data
-        github_i.innerHTML = `<a href="${data[i].projectRepo}" class="project-repo" target="_blank"></a><span>see project's code</span>`;
-        eye_i.innerHTML = `<a href="https://${data[i].projectURL}" class="project-link" target="_blank"></a><span>visit the site</span>`;
-        nameSpan.innerHTML = data[i].projectName;
-        img.src = data[i].cardImage;
-        //appending elements to each other
-        infoDiv.appendChild(nameSpan);
-        infoDiv.appendChild(eye_i);
-        infoDiv.appendChild(github_i);
-        CardDiv.appendChild(img);
-        CardDiv.appendChild(infoDiv);
-        //
-        document.querySelector(".portfolio .container .holder").appendChild(CardDiv);
-
-}};
+    for(let i = 0; i < data.length; i++ ){
+        //createing main elements
+        let card = document.createElement("div");
+        let frontF = document.createElement("div");
+        let backF = document.createElement("div");
+        //adding calsses
+        card.className = "project-card col-12 col-md-5 col-lg-3";
+        frontF.className = "face front-face";
+        backF.className = "face back-face";
+        //adding data and innerHtml to the main elements
+        frontF.innerHTML = ` 
+          <img src="${data[i].cardImage}" alt="" />
+          <button class="front-flib"><i class="fa fa-share" aria-hidden="true"></i></button>`;
+        backF.innerHTML = `          
+        <span class="project-name">- ${data[i].projectName}</span>
+          <div class="card-buttons">
+            <button class="view"><a href="" class="${data[i].projectURL}" target="_blank"> <span>Live Watch</span> <i class="fas fa-eye"></i></a> </button>
+            <button class="code"><a href="" class="${data[i].projectRepo}" target="_blank"> <span>code source</span> <i class="fab fa-github"></i></a></button>
+          </div>
+          <span class="project-date">- Done At : 10/5/2022</span>
+          <button class="back-flib"><i class="fa fa-share" aria-hidden="true"></i></button>`;
+          // appending elements to each other
+          card.appendChild(frontF);
+          card.appendChild(backF);
+          //
+          document.querySelector(".portfolio .container .holder").appendChild(card);
+    };
+    //adding functionality to the buttons in the card
+    document.querySelectorAll(".portfolio .container .holder .project-card .front-face button").forEach((btn,ind)=>{
+        btn.addEventListener("click",()=>{
+           document.querySelectorAll(".portfolio .container .holder .project-card")[ind].classList.add("flipped");
+        })
+    })
+    document.querySelectorAll(".portfolio .container .holder .project-card .back-face .back-flib").forEach((btn,ind)=>{
+        btn.addEventListener("click",()=>{
+           document.querySelectorAll(".portfolio .container .holder .project-card")[ind].classList.remove("flipped");
+        })
+    })
+} 
 createElements();
 
 //insert the number of projects
@@ -177,7 +184,10 @@ document.querySelectorAll(".sitting-bar .colors li").forEach((li)=>{
             ele.classList.remove("active");
         })
     li.classList.add("active");
-    document.documentElement.style.setProperty("--main-color",li.dataset.color);
+    document.documentElement.style.setProperty("--main-color",li.getAttribute("main-color"));
+    document.documentElement.style.setProperty("--secound-color",li.getAttribute("sec-color"));
+    document.documentElement.style.setProperty("--alt-color",li.getAttribute("alt-color"));
+    document.documentElement.style.setProperty("--card-bg",li.getAttribute("card-bg"));
     })
 })
 
@@ -200,13 +210,6 @@ window.onscroll = ()=>{
 }
 
 
-//logic for contact form
-document.querySelector(".contact .send-button").addEventListener("click",()=>{
-
-    document.querySelectorAll(".comtact .input-fild").forEach((e)=>{
-        e.value = "";
-    })
-})
 
 //logic for contact section
 let filds = document.querySelectorAll(".in-fild");

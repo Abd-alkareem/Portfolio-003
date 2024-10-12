@@ -143,8 +143,8 @@ function createElements(){
         backF.innerHTML = `          
         <span class="project-name">- ${data[i].projectName}</span>
           <div class="card-buttons">
-            <button class="view"><a href="" class="${data[i].projectURL}" target="_blank"> <span>Live Watch</span> <i class="fas fa-eye"></i></a> </button>
-            <button class="code"><a href="" class="${data[i].projectRepo}" target="_blank"> <span>code source</span> <i class="fab fa-github"></i></a></button>
+            <button class="view"><a href="${data[i].projectURL}" class="" target="_blank"> <span>Live Watch</span> <i class="fas fa-eye"></i></a> </button>
+            <button class="code"><a href="${data[i].projectRepo}" class="" target="_blank"> <span>code source</span> <i class="fab fa-github"></i></a></button>
           </div>
           <span class="project-date">- Done At : 10/5/2022</span>
           <button class="back-flib"><i class="fa fa-share" aria-hidden="true"></i></button>`;

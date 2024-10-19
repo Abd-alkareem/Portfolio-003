@@ -75,6 +75,7 @@ function createElements(){
     document.querySelectorAll(".portfolio .container .holder .project-card .front-face button").forEach((btn,ind)=>{
         btn.addEventListener("click",()=>{
            document.querySelectorAll(".portfolio .container .holder .project-card")[ind].classList.add("flipped");
+           // adding animation to the languages progresses
            setTimeout(()=>{
             document.querySelectorAll(`.portfolio .container .holder .project-card:nth-child(${ind + 1}) .rating .block`).forEach((block)=>{
               block.classList.add("animated")
@@ -85,6 +86,7 @@ function createElements(){
     document.querySelectorAll(".portfolio .container .holder .project-card .back-face .back-flib").forEach((btn,ind)=>{
         btn.addEventListener("click",()=>{
            document.querySelectorAll(".portfolio .container .holder .project-card")[ind].classList.remove("flipped");
+           // adding animation to the languages progresses
             document.querySelectorAll(`.portfolio .container .holder .project-card:nth-child(${ind + 1}) .rating .block`).forEach((block)=>{
               block.classList.remove("animated")
             })

@@ -23,7 +23,7 @@ function createElements(){
         backF.className = "face back-face";
         //adding ProjectsData and innerHtml to the main elements
         frontF.innerHTML = ` 
-          <img src="${ProjectsData[i].img}" alt="" />
+          <img src="${(ProjectsData[i].img).toLowerCase()}" alt="" />
           <button class="front-flib"><i class="fa fa-share" aria-hidden="true"></i></button>`;
         backF.innerHTML = `          
         <span class="project-name">- ${ProjectsData[i].name}</span>
